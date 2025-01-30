@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 # paytm
+This is a paytm like website.
+Where a user can come and store money in there wallet from the bank.
+And can also send money to there friends.
 =======
 # Turborepo starter
 
