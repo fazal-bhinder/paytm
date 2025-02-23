@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # paytm
 This is a paytm like website.
 Where a user can come and store money in there wallet from the bank.
