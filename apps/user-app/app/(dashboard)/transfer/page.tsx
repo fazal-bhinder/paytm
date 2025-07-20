@@ -44,7 +44,7 @@ export default async function TransferPage() {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
             <div>
-                <AddMoney />
+                <AddMoney/>
             </div>
             <div>
                 <BalanceCard amount={balance.amount} locked={balance.locked} />

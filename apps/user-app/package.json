@@ -9,6 +9,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@next/swc-darwin-arm64": "^15.1.7",
     "@repo/store": "*",
     "@repo/ui": "*",
     "@types/bcrypt": "^5.0.2",

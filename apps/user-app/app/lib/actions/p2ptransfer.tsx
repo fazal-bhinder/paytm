@@ -4,6 +4,7 @@ import { authOptions } from "../auth";
 import prisma from "@repo/db/client";
 
 export async function p2pTransfer(to: string, amount: number) {
+
     const session = await getServerSession(authOptions);
     const from = session?.user?.id;
     if (!from) {
@@ -11,6 +12,7 @@ export async function p2pTransfer(to: string, amount: number) {
             message: "Error while sending"
         }
     }
+
     const toUser = await prisma.user.findFirst({
         where: {
             number: to
@@ -22,6 +24,7 @@ export async function p2pTransfer(to: string, amount: number) {
             message: "User not found"
         }
     }
+    
     await prisma.$transaction(async (tx) => {
         const fromBalance = await tx.balance.findUnique({
             where: { userId: Number(from) },

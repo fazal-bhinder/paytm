@@ -1,85 +1,122 @@
-<<<<<<< HEAD
 # paytm
-=======
-# Turborepo starter
 
-This is an official starter Turborepo.
+This is a paytm-like website.
+Where a user can come and store money in their wallet from the bank.
+And can also send money to their friends.
 
-## Using this example
+![Untitled design](https://github.com/user-attachments/assets/d956e75e-c22f-4162-a833-d475b1e8e4e8)
 
-Run the following command:
+# Transfer Page
 
-```sh
-npx create-turbo@latest
-```
+![Screenshot 2025-02-24 at 2 36 37 AM](https://github.com/user-attachments/assets/dfbc07dd-f7f2-483b-b919-33381f28ee33)
 
-## What's inside?
+# Transaction Page
 
-This Turborepo includes the following packages/apps:
+![Transaction](https://github.com/user-attachments/assets/ddfdfee9-f52d-4e2f-ac56-016a2ff438f0)
 
-### Apps and Packages
+---
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Features
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- **User App**: Digital wallet, add money, P2P transfers, transaction history, authentication.
+- **Merchant App**: Merchant authentication (Google), balance display.
+- **Shared Packages**: UI component library, database (Prisma/Postgres), state management (Recoil).
 
-### Utilities
+---
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## Monorepo Structure
 
 ```
-cd my-turborepo
-pnpm build
+apps/
+  merchant-app/   # Next.js app for merchants (port 3000)
+  user-app/       # Next.js app for users (port 3001)
+packages/
+  db/             # Prisma schema, database client, and seed scripts
+  ui/             # Shared React UI components
+  store/          # Shared state management (Recoil)
+  eslint-config/  # Shared ESLint config
+  typescript-config/ # Shared TypeScript config
 ```
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
+## Getting Started
 
-```
-cd my-turborepo
-pnpm dev
-```
+### Prerequisites
 
-### Remote Caching
+- Node.js v18+
+- PostgreSQL
+- Yarn or npm
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+### Setup
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+1. **Install dependencies:**
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+2. **Configure environment:**
+   - Copy `.env.example` to `.env` in the root and in each app as needed.
+   - Set your `DATABASE_URL` for PostgreSQL.
+3. **Setup database:**
+   ```sh
+   cd packages/db
+   npx prisma migrate dev
+   npx prisma db seed
+   ```
+4. **Run the apps:**
+   - **User App:**
+     ```sh
+     cd apps/user-app
+     npm run dev
+     # http://localhost:3001
+     ```
+   - **Merchant App:**
+     ```sh
+     cd apps/merchant-app
+     npm run dev
+     # http://localhost:3000
+     ```
 
-```
-cd my-turborepo
-npx turbo login
-```
+---
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Development
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+- **Build all:**
+  ```sh
+  npm run build
+  ```
+- **Lint all:**
+  ```sh
+  npm run lint
+  ```
+- **Format:**
+  ```sh
+  npm run format
+  ```
 
-```
-npx turbo link
-```
+---
 
-## Useful Links
+## Tech Stack
 
-Learn more about the power of Turborepo:
+- Next.js
+- React
+- TypeScript
+- Prisma & PostgreSQL
+- NextAuth
+- Recoil
+- TailwindCSS
+- Turborepo
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
->>>>>>> Initial commit
+---
+
+## Contributing
+
+Pull requests and issues are welcome!
+
+---
+
+## License
+
+[Add your license here]
